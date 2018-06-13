@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import Navbar from "./components/navbar/Navbar";
+import RestaurantDetails from "./components/restaurant_details/RestaurantDetails";
 
 class App extends Component {
   componentDidMount() {}
@@ -12,10 +13,12 @@ class App extends Component {
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
     return (
-      <div>
-        <p>test</p>
+      <main>
+        <div className="restaurant_details">
+          <RestaurantDetails />
+        </div>
         <Navbar />
-      </div>
+      </main>
     );
   }
 }
