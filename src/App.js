@@ -2,21 +2,18 @@ import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
 import Navbar from "./components/navbar/Navbar";
-import RestaurantDetails from "./components/restaurant_details/RestaurantDetails";
+import Restaurants from "./components/restaurants/Restaurants";
 
 class App extends Component {
   componentDidMount() {}
   render() {
-    axios
-      .get("https://s3.amazonaws.com/br-codingexams/restaurants.json")
-      // .get(process.env.REACT_APP_BOTTLE_ROCKET_API)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err));
+    // axios
+    //   .get("https://s3.amazonaws.com/br-codingexams/restaurants.json")
+    //   .then(res => console.log(res.data))
+    //   .catch(err => console.log(err));
     return (
       <main>
-        <div className="restaurant_details">
-          <RestaurantDetails />
-        </div>
+        <Restaurants />
         <Navbar />
       </main>
     );

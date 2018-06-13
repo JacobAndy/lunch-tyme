@@ -3,6 +3,8 @@ import "./Navbar.css";
 import lunch from "../../images/tab_lunch@2x.png";
 import internets from "../../images/tab_internets@2x.png";
 import map from "../../images/icon_map@2x.png";
+import { connect } from "react-redux";
+import { toggleRestaurantDetails } from "../../ducks/restaurants";
 
 class Navbar extends Component {
   constructor() {
@@ -12,13 +14,22 @@ class Navbar extends Component {
     };
   }
   render() {
+    console.log(this.props.restaurantReducer);
     let { currentToggle } = this.state;
+    let { toggleRestaurantDetails } = this.props.restaurantReducer;
     return (
       <main>
         <header className="top-intro-header">
           <div className="header-info-holder">
             <h3>Lunch Tyme</h3>
-            <img src={map} height="35px" width="35px" />
+            <img
+              onClick={() =>
+                this.props.restaurantReducer.toggleRestaurantDetails(true)
+              }
+              src={map}
+              height="35px"
+              width="35px"
+            />
           </div>
         </header>
         <footer className="navbar-holder">
@@ -41,4 +52,8 @@ class Navbar extends Component {
     );
   }
 }
-export default Navbar;
+let mapStateToProps = state => state;
+export default connect(
+  mapStateToProps,
+  { toggleRestaurantDetails }
+)(Navbar);
