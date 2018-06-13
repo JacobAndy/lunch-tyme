@@ -1,4 +1,4 @@
-let initialState = {
+const initialState = {
   restarauntViewToggle: false
 };
 
@@ -9,7 +9,7 @@ export default function restaurantReducer(state = initialState, action) {
     case TOGGLE_RESTAURANT_DETAILS:
       return { ...state, restarauntViewToggle: action.payload };
     default:
-      return state;
+      return { ...state };
   }
 }
 

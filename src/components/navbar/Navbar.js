@@ -7,14 +7,14 @@ import { connect } from "react-redux";
 import { toggleRestaurantDetails } from "../../ducks/restaurants";
 
 class Navbar extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       currentToggle: true
     };
   }
   render() {
-    console.log(this.props.restaurantReducer);
+    console.log(this.props.restaurantReducer.toggleRestaurantDetails);
     let { currentToggle } = this.state;
     let { toggleRestaurantDetails } = this.props.restaurantReducer;
     return (
@@ -35,14 +35,14 @@ class Navbar extends Component {
         <footer className="navbar-holder">
           <section
             onClick={() => this.setState({ currentToggle: true })}
-            className={!currentToggle && "inactiveToggle"}
+            className={!currentToggle ? "inactiveToggle" : null}
           >
             <img src={lunch} width="25px" height="30px" />
             <p>lunch</p>
           </section>
           <section
             onClick={() => this.setState({ currentToggle: false })}
-            className={currentToggle && "inactiveToggle"}
+            className={currentToggle ? "inactiveToggle" : null}
           >
             <img src={internets} width="25px" height="30px" />
             <p>internets</p>
@@ -52,7 +52,9 @@ class Navbar extends Component {
     );
   }
 }
-let mapStateToProps = state => state;
+let mapStateToProps = state => {
+  return { ...state };
+};
 export default connect(
   mapStateToProps,
   { toggleRestaurantDetails }
