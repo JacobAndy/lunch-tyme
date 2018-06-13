@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import "./App.css";
 import axios from "axios";
+import Navbar from "./components/navbar/Navbar";
 
 class App extends Component {
   componentDidMount() {}
@@ -10,7 +11,12 @@ class App extends Component {
       // .get(process.env.REACT_APP_BOTTLE_ROCKET_API)
       .then(res => console.log(res.data))
       .catch(err => console.log(err));
-    return <div>test</div>;
+    return (
+      <div>
+        <p>test</p>
+        <Navbar />
+      </div>
+    );
   }
 }
 

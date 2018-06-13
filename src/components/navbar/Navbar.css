@@ -1,0 +1,46 @@
+.header-info-holder {
+  text-align: center;
+  width: 100%;
+  padding-top: 10px;
+}
+.header-info-holder > img {
+  position: absolute;
+  right: 10px;
+  bottom: 8px;
+}
+.top-intro-header,
+.navbar-holder {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+  position: fixed;
+}
+.top-intro-header {
+  top: 0;
+  height: 60px;
+  background-color: #43e895;
+}
+.top-intro-header h3 {
+  font-size: 17px;
+  font-family: "Avenir", "Next";
+  font-weight: bold;
+  color: #ffffff;
+}
+.navbar-holder {
+  height: 50px;
+  background: #2a2a2a;
+  bottom: 0;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.navbar-holder p {
+  color: #979797;
+  font-family: "Avenir", "Next";
+  font-size: 10px;
+}
+.currentToggle {
+}
+.inactiveToggle {
+  opacity: 0.5;
+}
