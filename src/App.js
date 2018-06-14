@@ -12,7 +12,7 @@ class App extends Component {
     //   .then(res => console.log(res.data))
     //   .catch(err => console.log(err));
     return (
-      <main>
+      <main className="app-holder">
         <Restaurants />
         <Navbar />
       </main>

@@ -45,7 +45,11 @@ class Restaurants extends Component {
       );
     });
     return (
-      <main className="restaurants-main">
+      <main
+        className={
+          !restaurantViewToggle ? "restaurants-main" : "restaurants-main-map"
+        }
+      >
         <section
         // className={
         //   !restaurantViewToggle ? "currentPlatform" : "inactivePlatform"
@@ -53,13 +57,13 @@ class Restaurants extends Component {
         >
           {mappedRestaurants}
         </section>
-        {/* <section
-          className={
-            restaurantViewToggle ? "currentPlatform" : "inactivePlatform"
-          }
+        <section
+        // className={
+        //   restaurantViewToggle ? "currentPlatform" : "inactivePlatform"
+        // }
         >
           <RestaurantDetails />
-        </section> */}
+        </section>
       </main>
     );
   }

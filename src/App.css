@@ -7,3 +7,6 @@
 .rest {
   margin-left: 100vw;
 }
+.app-holder {
+  overflow-x: hidden;
+}

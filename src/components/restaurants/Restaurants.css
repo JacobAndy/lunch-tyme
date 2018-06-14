@@ -1,11 +1,21 @@
-.restaurants-main {
+.restaurants-main,
+.restaurants-main-map {
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  flex-direction: column;
+  flex-direction: row;
   padding: 60px 0 50px 0;
   /* background: grey; */
-  width: 100%;
+  min-width: 200vw;
+  /* overflow-x: hidden; */
+  transition: 0.5s;
+}
+.restaurants-main {
+  transform: translateX(0%);
+}
+.restaurants-main-map {
+  transition: 0.5s;
+  transform: translateX(-50%);
 }
 .each-restaurant {
   /* margin-top: 60px; */
@@ -13,7 +23,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  width: 100vw;
+  min-width: 100vw;
   height: 30vh;
 }
 .restaurant-name-category > p:nth-child(1) {
@@ -37,11 +47,4 @@
 .inactivePlatform {
   height: 100vh;
   transition: 0.5s;
-  position: absolute;
-}
-.currentPlatform {
-  right: 0px;
-}
-.inactivePlatform {
-  right: 100vw;
 }
