@@ -1,15 +1,13 @@
 const initialState = {
-  restarauntViewToggle: false
+  restaurantViewToggle: false
 };
-
 const TOGGLE_RESTAURANT_DETAILS = "TOGGLE_RESTAURANT_DETAILS";
-
 export default function restaurantReducer(state = initialState, action) {
   switch (action.type) {
     case TOGGLE_RESTAURANT_DETAILS:
-      return { ...state, restarauntViewToggle: action.payload };
+      return { ...state, restaurantViewToggle: action.payload };
     default:
-      return { ...state };
+      return state;
   }
 }
 

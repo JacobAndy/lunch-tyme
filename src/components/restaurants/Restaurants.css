@@ -1,9 +1,9 @@
 .restaurants-main {
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
-  margin: 60px 0 50px 0;
+  padding: 60px 0 50px 0;
   /* background: grey; */
   width: 100%;
 }
@@ -13,7 +13,7 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-start;
-  width: 100%;
+  width: 100vw;
   height: 30vh;
 }
 .restaurant-name-category > p:nth-child(1) {
@@ -32,4 +32,16 @@
 .restaurant-name-category {
   position: absolute;
   margin-left: 12px;
+}
+.currentPlatform,
+.inactivePlatform {
+  height: 100vh;
+  transition: 0.5s;
+  position: absolute;
+}
+.currentPlatform {
+  right: 0px;
+}
+.inactivePlatform {
+  right: 100vw;
 }

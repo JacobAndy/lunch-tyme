@@ -40,13 +40,26 @@ class Restaurants extends Component {
             <p>{e.name}</p>
             <p>{e.category}</p>
           </section>
-          <img src={gradient} height="100px" width="100%" />
+          <img src={gradient} height="100%" width="100%" />
         </div>
       );
     });
     return (
       <main className="restaurants-main">
-        {!restaurantViewToggle ? mappedRestaurants : <RestaurantDetails />}
+        <section
+        // className={
+        //   !restaurantViewToggle ? "currentPlatform" : "inactivePlatform"
+        // }
+        >
+          {mappedRestaurants}
+        </section>
+        {/* <section
+          className={
+            restaurantViewToggle ? "currentPlatform" : "inactivePlatform"
+          }
+        >
+          <RestaurantDetails />
+        </section> */}
       </main>
     );
   }

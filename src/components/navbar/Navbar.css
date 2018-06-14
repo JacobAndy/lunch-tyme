@@ -1,20 +1,20 @@
 .header-info-holder {
   text-align: center;
-  width: 100%;
-  padding-top: 10px;
+  justify-content: space-between;
+  padding: 10px 10px 0 10px;
 }
-.header-info-holder > img {
-  position: absolute;
-  right: 10px;
-  bottom: 8px;
+
+.top-intro-header,
+.navbar-holder {
+  justify-content: center;
+  position: fixed;
 }
+.header-info-holder,
 .top-intro-header,
 .navbar-holder {
   display: flex;
   align-items: center;
-  width: 100%;
-  justify-content: center;
-  position: fixed;
+  width: 100vw;
 }
 .top-intro-header {
   top: 0;
