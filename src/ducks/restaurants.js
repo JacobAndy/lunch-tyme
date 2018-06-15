@@ -9,6 +9,7 @@ const initialState = {
 
 const TOGGLE_RESTAURANT_DETAILS = "TOGGLE_RESTAURANT_DETAILS";
 const GET_RESTAURANTS = "GET_RESTAURANTS";
+const SET_ACTIVE_LOCATION = "SET_ACTIVE_LOCATION";
 
 export default function restaurantReducer(state = initialState, action) {
   switch (action.type) {
@@ -23,6 +24,9 @@ export default function restaurantReducer(state = initialState, action) {
         loading: false
       };
 
+    case SET_ACTIVE_LOCATION:
+      return { ...state, activeLocation: action.payload };
+
     case TOGGLE_RESTAURANT_DETAILS:
       return { ...state, restaurantViewToggle: action.payload };
     default:
@@ -33,6 +37,13 @@ export default function restaurantReducer(state = initialState, action) {
 export function toggleRestaurantDetails(val) {
   return {
     type: TOGGLE_RESTAURANT_DETAILS,
+    payload: val
+  };
+}
+export function setActiveRestaurant(val) {
+  console.log(val);
+  return {
+    type: SET_ACTIVE_LOCATION,
     payload: val
   };
 }

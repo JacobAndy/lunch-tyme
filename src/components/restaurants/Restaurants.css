@@ -8,13 +8,13 @@
   /* background: grey; */
   min-width: 200vw;
   /* overflow-x: hidden; */
-  transition: 0.5s;
+  transition: 2s;
 }
 .restaurants-main {
   transform: translateX(0%);
 }
 .restaurants-main-map {
-  transition: 0.5s;
+  transition: 2s;
   transform: translateX(-50%);
 }
 .each-restaurant {

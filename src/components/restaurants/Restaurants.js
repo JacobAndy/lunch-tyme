@@ -5,7 +5,8 @@ import { connect } from "react-redux";
 import gradient from "../../images/cellGradientBackground@2x.png";
 import {
   getRestaurants,
-  toggleRestaurantDetails
+  toggleRestaurantDetails,
+  setActiveRestaurant
 } from "../../ducks/restaurants";
 
 class Restaurants extends Component {
@@ -22,7 +23,10 @@ class Restaurants extends Component {
     let mappedRestaurants = restaurants.map((e, i) => {
       return (
         <div
-          onClick={() => this.props.toggleRestaurantDetails(true)}
+          onClick={() => {
+            this.props.toggleRestaurantDetails(true);
+            this.props.setActiveRestaurant(e.location);
+          }}
           className="each-restaurant"
           style={{
             backgroundImage: `url(${e.backgroundImageURL})`,
@@ -66,5 +70,5 @@ class Restaurants extends Component {
 let mapStateToProps = state => state;
 export default connect(
   mapStateToProps,
-  { getRestaurants, toggleRestaurantDetails }
+  { getRestaurants, toggleRestaurantDetails, setActiveRestaurant }
 )(Restaurants);

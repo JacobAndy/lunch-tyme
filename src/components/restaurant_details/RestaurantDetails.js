@@ -10,18 +10,35 @@ import {
 import { connect } from "react-redux";
 import { toggleRestaurantDetails } from "../../ducks/restaurants";
 
-const RestaurantMarkers = compose(
-  withScriptjs,
-  withGoogleMap
-)(props => (
-  <GoogleMap defaultZoom={18} defaultCenter={{ lat: -34.397, lng: 150.644 }}>
-    <Marker position={{ lat: -34.397, lng: 150.644 }} />
-  </GoogleMap>
-));
-
 class Restaurant extends Component {
+  // componentDidMount() {}
   render() {
-    console.log(this.props);
+    console.log(this.props.restaurantReducer.restaurants);
+    const mappedMarkers = this.props.restaurantReducer.restaurants.map(e => {
+      return (
+        <Marker
+          position={{
+            lat: e.location.lat,
+            lng: e.location.lng
+          }}
+        />
+      );
+    });
+    const RestaurantMarkers = compose(
+      withScriptjs,
+      withGoogleMap
+    )(props => (
+      <GoogleMap
+        labelStyle={{ color: "blue" }}
+        defaultZoom={15}
+        defaultCenter={{
+          lat: this.props.restaurantReducer.activeLocation.lat,
+          lng: this.props.restaurantReducer.activeLocation.lng
+        }}
+      >
+        {mappedMarkers}
+      </GoogleMap>
+    ));
     return (
       <RestaurantMarkers
         googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUIGKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"
