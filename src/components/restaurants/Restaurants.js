@@ -2,32 +2,27 @@ import React, { Component } from "react";
 import "./Restaurants.css";
 import RestaurantDetails from "../restaurant_details/RestaurantDetails";
 import { connect } from "react-redux";
-import axios from "axios";
 import gradient from "../../images/cellGradientBackground@2x.png";
+import {
+  getRestaurants,
+  toggleRestaurantDetails
+} from "../../ducks/restaurants";
 
 class Restaurants extends Component {
   constructor() {
     super();
-    this.state = {
-      restaurants: []
-    };
+    this.state = {};
   }
   componentDidMount() {
-    axios
-      .get("https://s3.amazonaws.com/br-codingexams/restaurants.json")
-      .then(res => {
-        console.log(res);
-        this.setState({ restaurants: res.data.restaurants });
-      })
-      .catch(err => console.log(err));
+    this.props.getRestaurants();
   }
   render() {
-    let { restaurantViewToggle } = this.props.restaurantReducer;
+    let { restaurantViewToggle, restaurants } = this.props.restaurantReducer;
     console.log(this.props);
-    let { restaurants } = this.state;
     let mappedRestaurants = restaurants.map((e, i) => {
       return (
         <div
+          onClick={() => this.props.toggleRestaurantDetails(true)}
           className="each-restaurant"
           style={{
             backgroundImage: `url(${e.backgroundImageURL})`,
@@ -71,5 +66,5 @@ class Restaurants extends Component {
 let mapStateToProps = state => state;
 export default connect(
   mapStateToProps,
-  {}
+  { getRestaurants, toggleRestaurantDetails }
 )(Restaurants);

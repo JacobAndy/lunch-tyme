@@ -15,19 +15,28 @@ class Navbar extends Component {
     };
   }
   render() {
-    console.log(this.props);
+    console.log(this.props.restaurantReducer);
+    let { restaurantViewToggle } = this.props.restaurantReducer;
     let { currentToggle } = this.state;
     // let { toggleRestaurantDetails } = this.props.restaurantReducer;
     return (
       <main>
         <header className="top-intro-header">
-          <div className="header-info-holder">
-            <img
-              src={backArrow}
-              width="15px"
-              height="25px"
-              onClick={() => this.props.toggleRestaurantDetails(false)}
-            />
+          <div
+            className={
+              !restaurantViewToggle
+                ? "header-info-holder-mapopen"
+                : "header-info-holder"
+            }
+          >
+            {restaurantViewToggle && (
+              <img
+                src={backArrow}
+                width="15px"
+                height="25px"
+                onClick={() => this.props.toggleRestaurantDetails(false)}
+              />
+            )}
             <h3>Lunch Tyme</h3>
             <img
               onClick={() => this.props.toggleRestaurantDetails(true)}
